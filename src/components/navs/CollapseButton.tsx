@@ -8,7 +8,7 @@ type TProp = {
 
 function CollapseButton ({title, active}:TProp) {
     return(
-        <div className="d-flex justify-content-between align-items-center side-bar__collapse-button text-secondary">
+        <div className="d-flex justify-content-between align-items-center side-bar__collapse-button text-secondary m-2 mx-3">
             <span>{title}</span>
             <FontAwesomeIcon icon={active?faAngleUp:faAngleDown} />
         </div>
