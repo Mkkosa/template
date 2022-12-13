@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Nav } from 'react-bootstrap'
-import When from '../utils/When'
+import When from 'components/utils/When'
 import { content } from '.'
 import NavCollapse from './components/NavCollapse'
 
