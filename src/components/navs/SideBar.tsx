@@ -1,8 +1,8 @@
 import { useState } from 'react'
-import { Nav, Collapse, NavLink } from 'react-bootstrap'
+import { Nav } from 'react-bootstrap'
 import When from '../utils/When'
-import CollapseButton from './CollapseButton'
 import { content } from '.'
+import NavCollapse from './components/NavCollapse'
 
 function SideBar() {
     const [collapse, setCollapse] = useState(0)
@@ -13,22 +13,14 @@ function SideBar() {
 
     return (
         <div className='d-inline-flex h-100 side-bar'>
-            <Nav defaultActiveKey="/home" variant='dark' className="flex-column bg-dark">
+            <Nav variant='dark' className="flex-column bg-dark">
                 {content.map((navItem, index) =>
                     <div key={index}>
                         <When condition={navItem.items !== undefined}>
-                            <Nav.Item onClick={() => changeCollapse(index)}>
-                                <CollapseButton title="Collapse" active={collapse === index} />
-                            </Nav.Item>
-                            <Collapse in={collapse === index}>
-                                <div>
-                                    {navItem.items?.map((subItem, index) =>
-                                        <div className='ms-3' key={index}>
-                                            <NavLink href={subItem.href}>{subItem.title}</NavLink>
-                                        </div>
-                                    )}
-                                </div>
-                            </Collapse>
+                            <NavCollapse 
+                                isActive={collapse === index} 
+                                navItem={navItem} 
+                                changeCollapse={() => changeCollapse(index)} />
                         </When>
                         <When condition={navItem.items === undefined}>
                             <Nav.Link href={navItem.href}>{navItem.title}</Nav.Link>
