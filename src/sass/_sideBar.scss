@@ -1,9 +1,20 @@
 .side-bar{
+    height: 100vh;
     &__logo{
         
     }
     &__collapse-button{
         cursor: pointer;
         width: 150px;
+    }
+    &__nav-item{
+        &-icon{
+            width: 30px;
+        }
+        &-sub-item{
+            &-icon{
+                width: 30px;
+            }
+        }
     }
 }
